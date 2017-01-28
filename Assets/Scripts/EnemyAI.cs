@@ -18,32 +18,39 @@ public class EnemyAI : MonoBehaviour {
     public bool pathIsEnded = false;
     public float nextWayPointDistance = 3f; //max distance from AI to waypoint before continuing to next
     private int currentWayPoint = 0; //waypoint currently moving to
-    
-	void Start () {
+    private bool searchingForPlayer = false;
+
+    void Start() {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
-        if(target = null) {
-            Debug.LogError("target not set/found. Get Rekt!");
+        if (target == null) {
+            if (!searchingForPlayer) {
+                searchingForPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
             return;
         }
 
         seeker.StartPath(transform.position, target.position, OnPathComplete);
         StartCoroutine(UpdatePath());
-	}
-	
-	void FixedUpdate () {
+    }
+
+    void FixedUpdate() {
         if (target == null) {
-            //TODO: player search
+            if (!searchingForPlayer) {
+                searchingForPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
             return;
         }
 
         //TODO: always look at player?
-        if(path == null) {
+        if (path == null) {
             return;
         }
-        if(currentWayPoint >= path.vectorPath.Count) {
-            if(pathIsEnded) {
+        if (currentWayPoint >= path.vectorPath.Count) {
+            if (pathIsEnded) {
                 return;
             }
             Debug.Log("end of path reached");
@@ -57,9 +64,22 @@ public class EnemyAI : MonoBehaviour {
         rb.AddForce(dir, fMode);
 
         float dist = Vector3.Distance(transform.position, path.vectorPath[currentWayPoint]);
-        if(dist < nextWayPointDistance) {
+        if (dist < nextWayPointDistance) {
             currentWayPoint++;
             return;
+        }
+    }
+
+    IEnumerator SearchForPlayer() {
+        GameObject sResult = GameObject.FindGameObjectWithTag("Player");
+        if(sResult == null) {
+            yield return new WaitForSeconds(0.5f);
+            StartCoroutine(SearchForPlayer());
+        } else {
+            searchingForPlayer = false;
+            target = sResult.transform;
+            StartCoroutine(UpdatePath());
+            yield return false;
         }
     }
 
@@ -72,8 +92,11 @@ public class EnemyAI : MonoBehaviour {
     }
 
     IEnumerator UpdatePath() {
-        if(target == null) {
-            //TODO: player search
+        if (target == null) {
+            if (!searchingForPlayer) {
+                searchingForPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
             yield return false;
         }
         seeker.StartPath(transform.position, target.position, OnPathComplete);
