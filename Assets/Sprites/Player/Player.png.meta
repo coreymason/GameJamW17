@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a87052a8e566dd548adbb5733b06441e
-timeCreated: 1485651165
+timeCreated: 1485657061
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -19,6 +19,23 @@ TextureImporter:
     21300024: Walk5
     21300026: Walk8
     21300028: Walk9
+    21300030: Attack01
+    21300032: Attack02
+    21300034: Jump01
+    21300036: Player_3
+    21300038: Player_4
+    21300040: Fall01
+    21300042: Idle01
+    21300044: Walk01
+    21300046: Player_8
+    21300048: Walk02
+    21300050: Walk04
+    21300052: Walk05
+    21300054: Player_12
+    21300056: Walk03
+    21300058: Walk06
+    21300060: Walk07
+    21300062: Player_16
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -55,7 +72,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 2.8
+  spritePixelsToUnits: 32
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -81,27 +98,11 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Android
-    maxTextureSize: 1024
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: WebGL
-    maxTextureSize: 1024
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fall1
+      name: Attack01
       rect:
         serializedVersion: 2
         x: 0
@@ -114,7 +115,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Idle1
+      name: Attack02
       rect:
         serializedVersion: 2
         x: 64
@@ -127,7 +128,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Walk2
+      name: Jump01
       rect:
         serializedVersion: 2
         x: 128
@@ -140,7 +141,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Walk12
+      name: Player_3
       rect:
         serializedVersion: 2
         x: 192
@@ -148,12 +149,25 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Jump1
+      name: Player_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fall01
       rect:
         serializedVersion: 2
         x: 0
@@ -166,7 +180,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Walk1
+      name: Idle01
       rect:
         serializedVersion: 2
         x: 64
@@ -179,7 +193,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Walk3
+      name: Walk01
       rect:
         serializedVersion: 2
         x: 128
@@ -192,7 +206,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Walk11
+      name: Player_8
       rect:
         serializedVersion: 2
         x: 192
@@ -200,12 +214,12 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Walk4
+      name: Walk02
       rect:
         serializedVersion: 2
         x: 0
@@ -218,7 +232,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Walk6
+      name: Walk04
       rect:
         serializedVersion: 2
         x: 64
@@ -231,11 +245,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Walk7
+      name: Walk05
       rect:
         serializedVersion: 2
         x: 128
-        y: 65
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -244,20 +258,20 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Walk10
+      name: Player_12
       rect:
         serializedVersion: 2
         x: 192
-        y: 65
+        y: 64
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Walk5
+      name: Walk03
       rect:
         serializedVersion: 2
         x: 0
@@ -270,10 +284,10 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Walk8
+      name: Walk06
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 0
         width: 64
         height: 64
@@ -283,7 +297,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Walk9
+      name: Walk07
       rect:
         serializedVersion: 2
         x: 128
@@ -292,6 +306,19 @@ TextureImporter:
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_16
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
