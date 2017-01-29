@@ -28,5 +28,13 @@ public class PlayerAnimation : MonoBehaviour
     void CheckMovement()
     {
         animator.SetFloat("Walk Speed", Mathf.Abs(Player.current.rb.velocity.x));
+        if (Player.current.rb.velocity.x < 0.0f)
+        {
+            Player.current.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (Player.current.rb.velocity.x > 0.0f)
+        {
+            Player.current.transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 }
