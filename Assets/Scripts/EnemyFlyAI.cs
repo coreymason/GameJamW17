@@ -5,7 +5,7 @@ using Pathfinding;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Seeker))]
-public class EnemyAI : MonoBehaviour {
+public class EnemyFlyAI : MonoBehaviour {
 
     public Transform target;
     public float updateRate = 2f; //how many times each second update path
