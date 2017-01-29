@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class PlayerDamageScript : MonoBehaviour
 {
-    [SerializeField]
-    int damage = 1;
-
-    void OnCollision2D(Collider2D hit)
+    void OnCollisionEnter2D(Collision2D collInfo)
     {
-        if (hit.GetComponent<EnemyBird>() != null)
+        EnemyBird  bd = collInfo.collider.GetComponent<EnemyBird>();
+        if (bd != null)
         {
-            hit.GetComponent<EnemyBird>().DamageEnemy(damage);
+            Debug.Log("hitttttttttttttttttt");
+            bd.DamageEnemy(1000);
         }
     }
 }

@@ -37,7 +37,6 @@ public class GameMaster : MonoBehaviour {
     }
 
     public static void KillEnemyBird(EnemyBird enemy) {
-        gm.ShakeEffect();
         GameObject part = Instantiate(enemy.deathParticles, enemy.transform.position, Quaternion.identity).gameObject;
         Destroy(part, 2);
         Destroy(enemy.gameObject);
