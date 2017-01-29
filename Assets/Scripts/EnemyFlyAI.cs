@@ -53,7 +53,7 @@ public class EnemyFlyAI : MonoBehaviour {
             if (pathIsEnded) {
                 return;
             }
-            Debug.Log("end of path reached");
+            //Debug.Log("end of path reached");
             pathIsEnded = true;
             return;
         }
@@ -62,6 +62,13 @@ public class EnemyFlyAI : MonoBehaviour {
         Vector3 dir = (path.vectorPath[currentWayPoint] - transform.position).normalized; //Direction to next waypoint
         dir *= speed * Time.fixedDeltaTime;
         rb.AddForce(dir, fMode);
+        if (rb.velocity.x < 0.0f) {
+            transform.localScale = new Vector3(-3, 3, 1);
+        }
+        else if (rb.velocity.x > 0.0f) {
+            transform.localScale = new Vector3(3, 3, 1);
+        }
+
 
         float dist = Vector3.Distance(transform.position, path.vectorPath[currentWayPoint]);
         if (dist < nextWayPointDistance) {
@@ -84,7 +91,7 @@ public class EnemyFlyAI : MonoBehaviour {
     }
 
     public void OnPathComplete(Path p) {
-        Debug.Log("Got path, error if any is "+ p.error);
+        //Debug.Log("Got path, error if any is "+ p.error);
         if(!p.error) {
             path = p;
             currentWayPoint = 0;

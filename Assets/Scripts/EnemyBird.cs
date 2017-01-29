@@ -16,7 +16,7 @@ public class EnemyBird : MonoBehaviour {
 
     void start() {
         if(deathParticles == null) {
-            Debug.Log("No death particles");
+            //Debug.Log("No death particles");
         }
     }
 
