@@ -9,7 +9,8 @@ public class CameraShake : MonoBehaviour {
     float shakeAmount = 0f;
 
     void Awake() {
-        if(mainCamera == null) {
+        Debug.Log("awakecamshak");
+        if (mainCamera == null) {
             mainCamera = Camera.main;
         }
     }

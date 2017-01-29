@@ -27,7 +27,8 @@ public class GameMaster : MonoBehaviour {
     }
 
     public void ShakeEffect() {
-        cameraShake.Shake(.1f, .1f);
+        Debug.Log("shaking?");
+        cameraShake.Shake(.3f, 1f);
     }
 
     public static void KillPlayer(Player player) {
@@ -36,8 +37,9 @@ public class GameMaster : MonoBehaviour {
     }
 
     public static void KillEnemyBird(EnemyBird enemy) {
-        Instantiate(enemy.deathParticles, enemy.transform.position, Quaternion.identity);
         gm.ShakeEffect();
+        GameObject part = Instantiate(enemy.deathParticles, enemy.transform.position, Quaternion.identity).gameObject;
+        Destroy(part, 2);
         Destroy(enemy.gameObject);
     }
 }

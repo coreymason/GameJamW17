@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
         stats.health -= damage;
         if (stats.health <= 0)
         {
-            // GameMaster.KillPlayer(this);
+            GameMaster.KillPlayer(this);
         }
     }
 
